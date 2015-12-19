@@ -37,7 +37,7 @@
 		</dependency>
 		<dependency>
 			<groupId>de.citec.csra</groupId>
-			<artifactId>csra-arbitration-service</artifactId>
+			<artifactId>arbitration-service</artifactId>
 			<version>1.0-SNAPSHOT</version>
 		</dependency>
 		<dependency>
