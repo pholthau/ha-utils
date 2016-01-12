@@ -5,16 +5,16 @@
  */
 package de.citec.csra.util;
 
-import de.citec.dal.remote.unit.AmbientLightRemote;
-import de.citec.dal.remote.unit.DimmerRemote;
-import de.citec.dm.remote.DeviceRegistryRemote;
-import de.citec.jul.exception.CouldNotPerformException;
-import de.citec.jul.exception.InitializationException;
-import de.citec.lm.remote.LocationRegistryRemote;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import org.dc.bco.dal.remote.unit.AmbientLightRemote;
+import org.dc.bco.dal.remote.unit.DimmerRemote;
+import org.dc.bco.registry.device.remote.DeviceRegistryRemote;
+import org.dc.bco.registry.location.remote.LocationRegistryRemote;
+import org.dc.jul.exception.CouldNotPerformException;
+import org.dc.jul.exception.InitializationException;
 import rst.homeautomation.unit.UnitConfigType;
 
 /**
@@ -23,23 +23,23 @@ import rst.homeautomation.unit.UnitConfigType;
  * (<a href=mailto:patrick.holthaus@uni-bielefeld.de>patrick.holthaus@uni-bielefeld.de</a>)
  */
 public class Remotes {
-	
+
 	private final Map<UnitConfigType.UnitConfig, AmbientLightRemote> lights = new HashMap<>();
 	private final Map<UnitConfigType.UnitConfig, DimmerRemote> dimmers = new HashMap<>();
 	private LocationRegistryRemote locations;
 	private DeviceRegistryRemote devices;
 	private final static Logger log = Logger.getLogger(Remotes.class.getName());
-	
+
 	private static Remotes instance;
 	private Remotes(){}
-	
+
 	public static Remotes get(){
 		if(instance == null){
 			instance = new Remotes();
 		}
 		return instance;
 	}
-	
+
 	public AmbientLightRemote getAmbientLight(UnitConfigType.UnitConfig u) throws InitializationException, InterruptedException, CouldNotPerformException {
 		if (this.lights.containsKey(u)) {
 			return this.lights.get(u);
@@ -52,7 +52,7 @@ public class Remotes {
 			return ambiremote;
 		}
 	}
-	
+
 	public DimmerRemote getDimmer(UnitConfigType.UnitConfig u) throws InitializationException, InterruptedException, CouldNotPerformException {
 		if (this.dimmers.containsKey(u)) {
 			return this.dimmers.get(u);
@@ -65,7 +65,7 @@ public class Remotes {
 			return ambiremote;
 		}
 	}
-	
+
 	public LocationRegistryRemote getLocations() throws InstantiationException, InitializationException, InterruptedException, CouldNotPerformException {
 		if (this.locations == null) {
 			this.locations = new LocationRegistryRemote();
@@ -74,7 +74,7 @@ public class Remotes {
 		}
 		return this.locations;
 	}
-	
+
 	public DeviceRegistryRemote getDevices() throws InstantiationException, InitializationException, InterruptedException, CouldNotPerformException {
 		if (this.devices == null) {
 			this.devices = new DeviceRegistryRemote();
