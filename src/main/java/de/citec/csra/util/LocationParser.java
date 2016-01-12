@@ -5,7 +5,7 @@
  */
 package de.citec.csra.util;
 
-import de.citec.jul.exception.CouldNotPerformException;
+import org.dc.jul.exception.CouldNotPerformException;
 
 /**
  *
