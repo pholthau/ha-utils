@@ -28,7 +28,7 @@ public class Remotes {
 	private final Map<UnitConfigType.UnitConfig, DimmerRemote> dimmers = new HashMap<>();
 	private LocationRegistryRemote locations;
 	private DeviceRegistryRemote devices;
-	private final static Logger log = Logger.getLogger(Remotes.class.getName());
+	private final static Logger LOG = Logger.getLogger(Remotes.class.getName());
 
 	private static Remotes instance;
 	private Remotes(){}
@@ -44,7 +44,7 @@ public class Remotes {
 		if (this.lights.containsKey(u)) {
 			return this.lights.get(u);
 		} else {
-			log.log(Level.INFO, "initializing ambient light remote for unit ''{0}''", u.getLabel());
+			LOG.log(Level.FINE, "initializing ambient light remote for unit ''{0}''", u.getLabel());
 			AmbientLightRemote ambiremote = new AmbientLightRemote();
 			ambiremote.init(u);
 			ambiremote.activate();
@@ -57,7 +57,7 @@ public class Remotes {
 		if (this.dimmers.containsKey(u)) {
 			return this.dimmers.get(u);
 		} else {
-			log.log(Level.INFO, "initializing dimmer remote for unit ''{0}''", u.getLabel());
+			LOG.log(Level.FINE, "initializing dimmer remote for unit ''{0}''", u.getLabel());
 			DimmerRemote ambiremote = new DimmerRemote();
 			ambiremote.init(u);
 			ambiremote.activate();
@@ -68,6 +68,7 @@ public class Remotes {
 
 	public LocationRegistryRemote getLocations() throws InstantiationException, InitializationException, InterruptedException, CouldNotPerformException {
 		if (this.locations == null) {
+			LOG.log(Level.FINE, "initializing location registry remote");
 			this.locations = new LocationRegistryRemote();
 			this.locations.init();
 			this.locations.activate();
@@ -77,6 +78,7 @@ public class Remotes {
 
 	public DeviceRegistryRemote getDevices() throws InstantiationException, InitializationException, InterruptedException, CouldNotPerformException {
 		if (this.devices == null) {
+			LOG.log(Level.FINE, "initializing device registry remote");
 			this.devices = new DeviceRegistryRemote();
 			this.devices.init();
 			this.devices.activate();
