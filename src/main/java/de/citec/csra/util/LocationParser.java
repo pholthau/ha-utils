@@ -26,4 +26,9 @@ public class LocationParser implements StringParser<String> {
 			throw new IllegalArgumentException("location registry not available.", ex);
 		}
 	}
+
+	@Override
+	public Class<String> getTargetClass() {
+		return String.class;
+	}
 }

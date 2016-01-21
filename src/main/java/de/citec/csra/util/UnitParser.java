@@ -36,4 +36,9 @@ public class UnitParser implements StringParser<DALRemoteService> {
 			throw new IllegalArgumentException("device registry not available.", ex);
 		}
 	}
+
+	@Override
+	public Class<DALRemoteService> getTargetClass() {
+		return DALRemoteService.class;
+	}
 }
