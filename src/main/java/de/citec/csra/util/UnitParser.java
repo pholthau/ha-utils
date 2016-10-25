@@ -5,13 +5,11 @@
  */
 package de.citec.csra.util;
 
-import de.citec.csra.util.Remotes;
-import de.citec.csra.util.StringParser;
-import de.citec.dal.remote.unit.DALRemoteService;
-import de.citec.dal.remote.unit.UnitRemoteFactory;
-import de.citec.dm.remote.DeviceRegistryRemote;
-import de.citec.jul.exception.CouldNotPerformException;
 import java.util.List;
+import org.dc.bco.dal.remote.unit.DALRemoteService;
+import org.dc.bco.dal.remote.unit.UnitRemoteFactory;
+import org.dc.bco.registry.device.remote.DeviceRegistryRemote;
+import org.dc.jul.exception.CouldNotPerformException;
 import rst.homeautomation.unit.UnitConfigType.UnitConfig;
 
 /**
@@ -33,9 +31,14 @@ public class UnitParser implements StringParser<DALRemoteService> {
 				UnitConfig u = cfg.get(0);
 				return UnitRemoteFactory.getInstance().createAndInitUnitRemote(u);
 			}
-			
+
 		} catch (InstantiationException | InterruptedException | CouldNotPerformException ex) {
 			throw new IllegalArgumentException("device registry not available.", ex);
 		}
+	}
+
+	@Override
+	public Class<DALRemoteService> getTargetClass() {
+		return DALRemoteService.class;
 	}
 }

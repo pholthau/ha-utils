@@ -5,7 +5,7 @@
  */
 package de.citec.csra.util;
 
-import de.citec.jul.exception.CouldNotPerformException;
+import org.dc.jul.exception.CouldNotPerformException;
 
 /**
  *
@@ -25,5 +25,10 @@ public class LocationParser implements StringParser<String> {
 		} catch (InstantiationException | InterruptedException | CouldNotPerformException | IllegalArgumentException ex) {
 			throw new IllegalArgumentException("location registry not available.", ex);
 		}
+	}
+
+	@Override
+	public Class<String> getTargetClass() {
+		return String.class;
 	}
 }
