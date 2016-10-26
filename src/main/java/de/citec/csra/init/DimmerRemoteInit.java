@@ -27,7 +27,7 @@ public class DimmerRemoteInit implements Initializer<UnitConfig, DimmerRemote> {
 			LOG.log(Level.INFO, "initializing dimmer remote for unit ''{0}''", key.getLabel());
 			DimmerRemote dimmerremote = new DimmerRemote();
 			dimmerremote.init(key);
-			dimmerremote.activate();
+			dimmerremote.activate(true);
 			return dimmerremote;
 		} catch (InterruptedException | CouldNotPerformException ex) {
 			LOG.log(Level.SEVERE, null, ex);

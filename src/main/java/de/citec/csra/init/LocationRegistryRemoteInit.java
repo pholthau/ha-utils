@@ -25,7 +25,7 @@ public class LocationRegistryRemoteInit implements Initializer<String, LocationR
 			LOG.log(Level.INFO, "initializing location registry remote");
 			LocationRegistryRemote remote = new LocationRegistryRemote();
 			remote.init();
-			remote.activate();
+			remote.activate(true);
 			return remote;
 		} catch (InterruptedException | CouldNotPerformException ex) {
 			LOG.log(Level.SEVERE, null, ex);

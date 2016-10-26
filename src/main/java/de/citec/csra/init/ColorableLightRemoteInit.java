@@ -21,7 +21,7 @@ public class ColorableLightRemoteInit implements Initializer<UnitConfig, Colorab
 			LOG.log(Level.INFO, "initializing ambient light remote for unit ''{0}''", key.getLabel());
 			ColorableLightRemote ambiremote = new ColorableLightRemote();
 			ambiremote.init(key);
-			ambiremote.activate();
+			ambiremote.activate(true);
 			return ambiremote;
 		} catch (InterruptedException | CouldNotPerformException ex) {
 			LOG.log(Level.SEVERE, null, ex);
