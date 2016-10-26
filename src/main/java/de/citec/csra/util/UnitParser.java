@@ -6,30 +6,32 @@
 package de.citec.csra.util;
 
 import java.util.List;
-import org.dc.bco.dal.remote.unit.DALRemoteService;
-import org.dc.bco.dal.remote.unit.UnitRemoteFactory;
-import org.dc.bco.registry.device.remote.DeviceRegistryRemote;
-import org.dc.jul.exception.CouldNotPerformException;
-import rst.homeautomation.unit.UnitConfigType.UnitConfig;
+import org.openbase.bco.dal.remote.unit.UnitRemote;
+import org.openbase.bco.dal.remote.unit.UnitRemoteFactoryImpl;
+import org.openbase.bco.registry.unit.remote.UnitRegistryRemote;
+import org.openbase.jul.exception.CouldNotPerformException;
+import rst.domotic.unit.UnitConfigType.UnitConfig;
 
 /**
  *
  * @author Patrick Holthaus
  * (<a href=mailto:patrick.holthaus@uni-bielefeld.de>patrick.holthaus@uni-bielefeld.de</a>)
  */
-public class UnitParser implements StringParser<DALRemoteService> {
+public class UnitParser implements StringParser<UnitRemote> {
 
 	@Override
-	public DALRemoteService getValue(String tgt) throws IllegalArgumentException {
+	public UnitRemote getValue(String tgt) throws IllegalArgumentException {
 		try {
-			DeviceRegistryRemote dev = Remotes.get().getDevices();
-			List<UnitConfig> cfg = dev.getUnitConfigsByLabel(tgt);
+			UnitRegistryRemote unitRegistry = Remotes.get().getUnitRegistry();
+			List<UnitConfig> cfg = unitRegistry.getUnitConfigsByLabel(tgt);
 			if(cfg.isEmpty()){
 				throw new IllegalArgumentException("no unit with label'" + tgt + "'");
 			}
 			else {
 				UnitConfig u = cfg.get(0);
-				return UnitRemoteFactory.getInstance().createAndInitUnitRemote(u);
+                UnitRemote unitRemote = UnitRemoteFactoryImpl.getInstance().newInitializedInstance(u);
+                unitRemote.waitForData();
+				return unitRemote;
 			}
 
 		} catch (InstantiationException | InterruptedException | CouldNotPerformException ex) {
@@ -38,7 +40,7 @@ public class UnitParser implements StringParser<DALRemoteService> {
 	}
 
 	@Override
-	public Class<DALRemoteService> getTargetClass() {
-		return DALRemoteService.class;
+	public Class<UnitRemote> getTargetClass() {
+		return UnitRemote.class;
 	}
 }

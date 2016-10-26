@@ -5,7 +5,7 @@
  */
 package de.citec.csra.util;
 
-import org.dc.jul.exception.CouldNotPerformException;
+import org.openbase.jul.exception.CouldNotPerformException;
 
 /**
  *
@@ -17,7 +17,7 @@ public class LocationParser implements StringParser<String> {
 	@Override
 	public String getValue(String tgt) throws IllegalArgumentException {
 		try {
-			if (Remotes.get().getLocations().getLocationConfigsByLabel(tgt).size() > 0) {
+			if (Remotes.get().getLocationRegistry().getLocationConfigsByLabel(tgt).size() > 0) {
 				return tgt;
 			} else {
 				throw new IllegalArgumentException("location '" + tgt + "' not available.");

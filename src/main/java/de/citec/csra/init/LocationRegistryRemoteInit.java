@@ -7,8 +7,8 @@ package de.citec.csra.init;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import org.dc.bco.registry.location.remote.LocationRegistryRemote;
-import org.dc.jul.exception.CouldNotPerformException;
+import org.openbase.bco.registry.location.remote.LocationRegistryRemote;
+import org.openbase.jul.exception.CouldNotPerformException;
 
 /**
  *

@@ -8,9 +8,9 @@ package de.citec.csra.init;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import org.dc.bco.dal.remote.unit.DimmerRemote;
-import org.dc.jul.exception.CouldNotPerformException;
-import rst.homeautomation.unit.UnitConfigType.UnitConfig;
+import org.openbase.bco.dal.remote.unit.DimmerRemote;
+import org.openbase.jul.exception.CouldNotPerformException;
+import rst.domotic.unit.UnitConfigType.UnitConfig;
 
 /**
  *

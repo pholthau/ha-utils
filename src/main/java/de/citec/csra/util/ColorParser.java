@@ -16,32 +16,32 @@
  */
 package de.citec.csra.util;
 
-import rst.vision.HSVColorType.HSVColor;
+import rst.vision.HSBColorType.HSBColor;
 
 /**
  *
  * @author Patrick Holthaus
  * (<a href=mailto:patrick.holthaus@uni-bielefeld.de>patrick.holthaus@uni-bielefeld.de</a>)
  */
-public class ColorParser implements StringParser<HSVColor> {
+public class ColorParser implements StringParser<HSBColor> {
 
 	@Override
-	public HSVColor getValue(String val) throws IllegalArgumentException {
+	public HSBColor getValue(String val) throws IllegalArgumentException {
 		String[] hsv= val.split(",");
 		if(hsv.length != 3){
-			throw new IllegalArgumentException("Illegal HSV value: " + val);
+			throw new IllegalArgumentException("Illegal HSB value: " + val);
 		}
 		
-		HSVColor color = HSVColor.newBuilder().
+		HSBColor color = HSBColor.newBuilder().
 				setHue(Double.valueOf(hsv[0])).
 				setSaturation(Double.valueOf(hsv[1])).
-				setValue(Double.valueOf(hsv[2])).build();
+				setBrightness(Double.valueOf(hsv[2])).build();
 		
 		return color;
 	}
 
 	@Override
-	public Class<HSVColor> getTargetClass() {
-		return HSVColor.class;
+	public Class<HSBColor> getTargetClass() {
+		return HSBColor.class;
 	}
 }
