@@ -20,7 +20,7 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<maven.compiler.target>1.8</maven.compiler.target>
-		<arb.version>[0.3,)</arb.version>
+		<arb.version>[0.10,0.11-SNAPSHOT)</arb.version>
 		<rst.version>[0.13,0.14-SNAPSHOT)</rst.version>
 		<dal.version>[1.1,1.2-SNAPSHOT)</dal.version>
 	</properties>
