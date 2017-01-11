@@ -42,7 +42,7 @@
 		</dependency>
 		<dependency>
 			<groupId>rsb</groupId>
-			<artifactId>rst-sandbox-csra</artifactId>
+			<artifactId>rst-experimental</artifactId>
 			<version>${rst.version}</version>
 		</dependency>
 		<dependency>
