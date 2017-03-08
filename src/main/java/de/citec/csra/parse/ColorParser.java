@@ -14,8 +14,10 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package de.citec.csra.util;
+package de.citec.csra.parse;
 
+import de.citec.csra.rst.parse.StringParser;
+import rst.hri.HighlightTargetType;
 import rst.vision.HSBColorType.HSBColor;
 
 /**
@@ -27,21 +29,32 @@ public class ColorParser implements StringParser<HSBColor> {
 
 	@Override
 	public HSBColor getValue(String val) throws IllegalArgumentException {
-		String[] hsv= val.split(",");
-		if(hsv.length != 3){
+		String[] hsv = val.split(",");
+		if (hsv.length != 3) {
 			throw new IllegalArgumentException("Illegal HSB value: " + val);
 		}
-		
+
 		HSBColor color = HSBColor.newBuilder().
 				setHue(Double.valueOf(hsv[0])).
 				setSaturation(Double.valueOf(hsv[1])).
 				setBrightness(Double.valueOf(hsv[2])).build();
-		
+
 		return color;
 	}
 
 	@Override
 	public Class<HSBColor> getTargetClass() {
 		return HSBColor.class;
+	}
+
+	@Override
+	public String getString(HSBColor obj) {
+		StringBuilder bld = new StringBuilder();
+		bld.append(obj.getHue()).
+				append(",").
+				append(obj.getSaturation()).
+				append(",").
+				append(obj.getBrightness());
+		return bld.toString();
 	}
 }

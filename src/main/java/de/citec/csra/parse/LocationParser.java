@@ -3,9 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package de.citec.csra.util;
+package de.citec.csra.parse;
 
+import de.citec.csra.rst.parse.StringParser;
 import org.openbase.jul.exception.CouldNotPerformException;
+import rst.vision.HSBColorType;
 
 /**
  *
@@ -30,5 +32,10 @@ public class LocationParser implements StringParser<String> {
 	@Override
 	public Class<String> getTargetClass() {
 		return String.class;
+	}
+	
+	@Override
+	public String getString(String obj) {
+		return getValue(obj);
 	}
 }

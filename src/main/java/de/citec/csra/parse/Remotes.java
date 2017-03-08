@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package de.citec.csra.util;
+package de.citec.csra.parse;
 
 import java.util.HashMap;
 import java.util.Map;

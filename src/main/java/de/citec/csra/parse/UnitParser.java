@@ -3,13 +3,15 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package de.citec.csra.util;
+package de.citec.csra.parse;
 
+import de.citec.csra.rst.parse.StringParser;
 import java.util.List;
 import org.openbase.bco.dal.remote.unit.UnitRemote;
 import org.openbase.bco.dal.remote.unit.UnitRemoteFactoryImpl;
 import org.openbase.bco.registry.unit.remote.UnitRegistryRemote;
 import org.openbase.jul.exception.CouldNotPerformException;
+import org.openbase.jul.exception.NotAvailableException;
 import rst.domotic.unit.UnitConfigType.UnitConfig;
 
 /**
@@ -42,5 +44,14 @@ public class UnitParser implements StringParser<UnitRemote> {
 	@Override
 	public Class<UnitRemote> getTargetClass() {
 		return UnitRemote.class;
+	}
+
+	@Override
+	public String getString(UnitRemote obj) {
+		try {
+			return obj.getLabel();
+		} catch (NotAvailableException ex) {
+			throw new IllegalArgumentException("unit not available.", ex);
+		}
 	}
 }
