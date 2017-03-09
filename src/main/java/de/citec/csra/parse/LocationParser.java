@@ -15,11 +15,14 @@ import rst.vision.HSBColorType;
  * (<a href=mailto:patrick.holthaus@uni-bielefeld.de>patrick.holthaus@uni-bielefeld.de</a>)
  */
 public class LocationParser implements StringParser<String> {
+	
+	private final long TIMEOUT = 500;
 
 	@Override
 	public String getValue(String tgt) throws IllegalArgumentException {
+		System.out.println(tgt);
 		try {
-			if (Remotes.get().getLocationRegistry().getLocationConfigsByLabel(tgt).size() > 0) {
+			if (Remotes.get().getLocationRegistry(TIMEOUT).getLocationConfigsByLabel(tgt).size() > 0) {
 				return tgt;
 			} else {
 				throw new IllegalArgumentException("location '" + tgt + "' not available.");

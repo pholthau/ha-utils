@@ -21,10 +21,12 @@ import rst.domotic.unit.UnitConfigType.UnitConfig;
  */
 public class UnitParser implements StringParser<UnitRemote> {
 
+	private final long TIMEOUT = 500;
+	
 	@Override
 	public UnitRemote getValue(String tgt) throws IllegalArgumentException {
 		try {
-			UnitRegistryRemote unitRegistry = Remotes.get().getUnitRegistry();
+			UnitRegistryRemote unitRegistry = Remotes.get().getUnitRegistry(TIMEOUT);
 			List<UnitConfig> cfg = unitRegistry.getUnitConfigsByLabel(tgt);
 			if(cfg.isEmpty()){
 				throw new IllegalArgumentException("no unit with label'" + tgt + "'");
