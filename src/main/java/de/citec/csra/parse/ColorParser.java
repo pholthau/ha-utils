@@ -1,5 +1,5 @@
 /* 
- * Copyright (C) 2016 Bielefeld University, Patrick Holthaus
+ * Copyright (C) 2017 Patrick Holthaus
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -17,7 +17,6 @@
 package de.citec.csra.parse;
 
 import de.citec.csra.rst.parse.StringParser;
-import rst.hri.HighlightTargetType;
 import rst.vision.HSBColorType.HSBColor;
 
 /**
