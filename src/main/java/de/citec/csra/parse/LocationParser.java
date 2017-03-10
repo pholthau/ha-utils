@@ -16,6 +16,7 @@
  */
 package de.citec.csra.parse;
 
+import de.citec.csra.init.Remotes;
 import de.citec.csra.rst.parse.StringParser;
 import org.openbase.jul.exception.CouldNotPerformException;
 
