@@ -19,7 +19,7 @@ package de.citec.csra.parse;
 import de.citec.csra.init.Remotes;
 import de.citec.csra.rst.parse.StringParser;
 import java.util.List;
-import org.openbase.bco.dal.remote.unit.UnitRemote;
+import org.openbase.bco.dal.lib.layer.unit.UnitRemote;
 import org.openbase.bco.dal.remote.unit.UnitRemoteFactoryImpl;
 import org.openbase.bco.registry.unit.remote.UnitRegistryRemote;
 import org.openbase.jul.exception.CouldNotPerformException;
