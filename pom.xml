@@ -23,7 +23,7 @@
 		<netbeans.hint.license>gpl30</netbeans.hint.license>
 		<rst.version>[0.15,)</rst.version>
 		<dal.version>[1.3,)</dal.version>
-		<rsu.version>[0.1,)</rsu.version>
+		<rsu.version>[0.2-SNAPSHOT,)</rsu.version>
 	</properties>
 	<dependencies>
 		<dependency>
