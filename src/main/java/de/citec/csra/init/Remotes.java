@@ -35,6 +35,7 @@ import rst.domotic.unit.UnitConfigType.UnitConfig;
  * @author Patrick Holthaus
  * (<a href=mailto:patrick.holthaus@uni-bielefeld.de>patrick.holthaus@uni-bielefeld.de</a>)
  */
+@Deprecated
 public class Remotes {
 
 	private final Map<UnitConfig, ColorableLightRemote> lights = new HashMap<>();
@@ -55,6 +56,7 @@ public class Remotes {
 		return instance;
 	}
 
+	@Deprecated
 	public ColorableLightRemote getColorableLight(UnitConfig u, long timeout) throws InitializationException, InterruptedException, CouldNotPerformException {
 		if (this.lights.containsKey(u)) {
 			return this.lights.get(u);
@@ -69,6 +71,7 @@ public class Remotes {
 		}
 	}
 
+	@Deprecated
 	public DimmerRemote getDimmableLight(UnitConfig u, long timeout) throws InitializationException, InterruptedException, CouldNotPerformException {
 		if (this.dimmers.containsKey(u)) {
 			return this.dimmers.get(u);
@@ -83,6 +86,7 @@ public class Remotes {
 		}
 	}
 
+	@Deprecated
 	public LocationRegistryRemote getLocationRegistry(long timeout) throws InstantiationException, InitializationException, InterruptedException, CouldNotPerformException {
 		if (this.locations == null) {
 			LOG.log(Level.FINE, "initializing location registry remote");
@@ -92,6 +96,7 @@ public class Remotes {
 		return this.locations;
 	}
 
+	@Deprecated
 	public UnitRegistryRemote getUnitRegistry(long timeout) throws InstantiationException, InitializationException, InterruptedException, CouldNotPerformException {
 		if (this.unitRegistry == null) {
 			LOG.log(Level.FINE, "initializing device registry remote");

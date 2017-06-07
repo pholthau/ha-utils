@@ -31,6 +31,7 @@ public class ColorableLightRemoteInit implements Initializer<UnitConfig, Colorab
 
 	private final static Logger LOG = Logger.getLogger(ColorableLightRemoteInit.class.getName());
 	
+	@Deprecated
 	@Override
 	public ColorableLightRemote initialize(UnitConfig key) {
 		try {

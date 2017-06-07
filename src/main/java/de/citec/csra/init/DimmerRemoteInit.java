@@ -32,6 +32,7 @@ public class DimmerRemoteInit implements Initializer<UnitConfig, DimmerRemote> {
 
 	private final static Logger LOG = Logger.getLogger(DimmerRemoteInit.class.getName());
 	
+	@Deprecated
 	@Override
 	public DimmerRemote initialize(UnitConfig key) {
 		try {

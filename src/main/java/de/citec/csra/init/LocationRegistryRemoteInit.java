@@ -30,6 +30,7 @@ public class LocationRegistryRemoteInit implements Initializer<String, LocationR
 
 	private final static Logger LOG = Logger.getLogger(LocationRegistryRemoteInit.class.getName());
 
+	@Deprecated
 	@Override
 	public LocationRegistryRemote initialize(String key) {
 		try {
